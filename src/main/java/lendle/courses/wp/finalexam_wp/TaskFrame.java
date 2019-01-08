@@ -24,6 +24,7 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
+import sun.java2d.loops.CustomComponent;
 
 /**
  *
@@ -39,16 +40,10 @@ public class TaskFrame extends JInternalFrame {
         this.setSize(500, 300);
         //Q4: layout 出如圖所示的樣子，
         //記得 JTextArea 要放在捲軸裡面 (30%)
-        TaskFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        TaskFrame.setSize(500, 500);
-        BorderLayout layout=new BorderLayout();
-        TaskFrame.setLayout(layout);
-        JTextArea textArea = new JTextArea();
-        JList list=new JList();
-        TaskFrame.add(list,"West");
-        TaskFrame.add(textArea,"East");
-        layout.setHgap(50);
-        layout.setVgap(50);
+        CustomComponent c=new CustomComponent();
+        this.add(c,"West");
+        JTextArea textArea=new JTextArea();
+        this.add(textArea,"East");
         ////////////////////////////
         this.setClosable(true);
         this.setResizable(true);
