@@ -5,15 +5,23 @@
  */
 package lendle.courses.wp.finalexam_wp;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
 import javax.swing.DefaultListModel;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
+
 
 /**
  *
  * @author lendle
  */
 public class Main extends javax.swing.JFrame {
+
+    private Component jDesktopPane1;
 
     /**
      * Creates new form Main
@@ -106,7 +114,7 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel model = (DefaultListModel) this.jList1.getModel();
         if (model.contains(title)) {
             //Q1: 開啟 message dialog （10%）
-            
+            JOptionPane.showMessageDialog(this, "不可以重複", "", JOptionPane.ERROR_MESSAGE);
             ////////////////////
             return;
         }
@@ -114,7 +122,30 @@ public class Main extends javax.swing.JFrame {
         model.addElement(title);
         //Q2: 建立 TaskFrame（等同於 JInternalFrame）
         //加到 jDesktopPane1 (20%)
+        public class TaskFrame {
+            public static void main(String[] args) {
+                JFrame frame=new JFrame();
+                frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setLayout(new BorderLayout());
         
+                JDesktopPane desktopPane1=new JDesktopPane();
+                frame.setContentPane(desktopPane1);
+                TaskFrame taskFrame=new TaskFrame("taskFrame", true, true, true, true);
+                TaskFrame.setSize(300, 300);
+                taskFrame.setVisible(true);
+                frame.add(taskFrame);
+                frame.setVisible(true);
+            }
+
+        private static void setSize(int i, int i0) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        private void setVisible(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        }
         ///////////////////////////////////////
     }//GEN-LAST:event_buttonNewActionPerformed
 
@@ -133,7 +164,23 @@ public class Main extends javax.swing.JFrame {
             //Q3: 建立 TaskFrame（等同於 JInternalFrame）
             //設定 noteTitle, noteContent
             //加到 jDesktopPane1 (20%)
-            
+            public class TaskFrame {
+                public static void main(String[] args) {
+                    JFrame frame=new JFrame();
+                    frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                    frame.setSize(500, 500);
+                    frame.setLayout(new BorderLayout());
+        
+                    JDesktopPane desktopPane1=new JDesktopPane();
+                    frame.setContentPane(desktopPane1);
+                    TaskFrame taskFrame=new TaskFrame("noteTitle", true, true, true, true);
+                    TaskFrame taskFrame=new TaskFrame("noteContent", true, true, true, true);
+                    taskFrame.setSize(300, 300);
+                    taskFrame.setVisible(true);
+                    frame.add(taskFrame);
+                    frame.setVisible(true);
+                }
+            }
             //////////////////////////////////////////
         }
     }//GEN-LAST:event_jList1MouseClicked
