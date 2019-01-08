@@ -41,7 +41,8 @@ public class TaskFrame extends JInternalFrame {
         //Q4: layout 出如圖所示的樣子，
         //記得 JTextArea 要放在捲軸裡面 (30%)
         CustomComponent c=new CustomComponent();
-        this.add(c,"West");
+        JTextField textField=new JTextField();
+        this.add(textField,"West");
         JTextArea textArea=new JTextArea();
         this.add(textArea,"East");
         ////////////////////////////
